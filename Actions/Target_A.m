@@ -37,7 +37,7 @@ typedef  void(^CTUrlRouterCallbackBlock)(NSDictionary * info);
     NSArray * ImageUrls = params[@"ImageUrls"];
     NSIndexPath * indexPath =params[@"indexPath"];
     DetailsView* cell = params[@"cell"];
-    NSString * imageUrl = ImageUrls[(long)indexPath.row];
+    NSString * imageUrl = ImageUrls[indexPath.row];
     [cell.castsIcons sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
     
     return nil;

@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Actions/Target_A.m"
-            timestampString = "585222819.086499"
+            timestampString = "585223943.3396831"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "-Action_configCell:"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "-Action_cell:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Actions/Target_A.m"
-            timestampString = "585222819.086593"
+            timestampString = "585223943.339794"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "-Action_configCell:"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-Action_cell:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

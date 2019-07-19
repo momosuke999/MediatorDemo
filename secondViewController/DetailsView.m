@@ -26,7 +26,7 @@
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-      self.castsIcons.frame =CGRectMake(5, 60, 70, 100);
+      self.castsIcons.frame =CGRectMake(5, 60, 50, 70);
 }
 
 

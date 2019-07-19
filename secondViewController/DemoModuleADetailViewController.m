@@ -34,11 +34,16 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.returnBtn];
     
+    //temperary data source
+    _myImageArray= @[@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1530362237.95.jpg", @"https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1478066140.77.jpg",@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p805.jpg", @"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1466186775.21.jpg" ];
+    
     //init CollectionView
     UICollectionViewFlowLayout * flowLayout =[[UICollectionViewFlowLayout alloc] init];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 300, 300) collectionViewLayout:flowLayout];
+    flowLayout.estimatedItemSize = CGSizeMake(80, 50);
+    _collectionView.backgroundColor = [UIColor whiteColor];
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -52,7 +57,7 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
 
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    self.returnBtn.frame = CGRectMake(20, 50, 40, 20);
+    self.returnBtn.frame = CGRectMake(100,400 , 40, 20);
     
 }
 
@@ -104,22 +109,19 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
 
 
 -(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
-       _myImageArray= @[@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1530362237.95.jpg", @"https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1478066140.77.jpg",@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p805.jpg", @"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1466186775.21.jpg" ];
+
     
     [[CTMediator sharedInstance] CTMediator_configCollectionViewCell:cell withImageUrls:_myImageArray atIndexPath:indexPath];
 
 }
 
 
-//-(UICollectionView*)collectionView{
-  //  if (_collectionView == nil) {
-//        _collectionView = [[UICollectionView alloc] init];
- //       _collectionView.delegate = self;
- //       _collectionView.dataSource = self;
- //   }
-//    return _collectionView;
-//}
 
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return CGSizeZero;
+}
 
 -(void)dealloc{
     [[CTMediator sharedInstance]CTMediator_cleanCollectionViewCellTarget];
