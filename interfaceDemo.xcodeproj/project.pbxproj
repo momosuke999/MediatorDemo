@@ -114,13 +114,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		610481C022D87CD0008BE770 /* Mrdiator */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Mrdiator;
-			sourceTree = "<group>";
-		};
 		6163144F22DC25B100CFA9C2 /* secondViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -182,7 +175,6 @@
 				6163144F22DC25B100CFA9C2 /* secondViewController */,
 				61FA91DE22DF015200CF4DF7 /* Actions */,
 				61FA91DD22DF011900CF4DF7 /* ModelA */,
-				610481C022D87CD0008BE770 /* Mrdiator */,
 				61E139CA22D733FF0085241A /* ViewModel */,
 				F36A1F2F22AE32EA0047D3AD /* interfaceDemo */,
 				F36A1F5322AE32EB0047D3AD /* interfaceDemoUITests */,

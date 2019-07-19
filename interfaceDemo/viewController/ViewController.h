@@ -9,7 +9,7 @@
 //#import <UIKit/UIKit.h>
 #import "interfaceModel.h"
 @interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
-
+//- (UIViewController *)viewController;
 //-(void)bindWithC:(NSArray*) TempDataArray  indexpathRow:(NSInteger) indexpathRow;
 @end
 

@@ -10,7 +10,7 @@
 #import "interfaceView.h"
 #import "ViewModel.h"
 #import <ReactiveCocoa.h>
-#import "CTMediator.h"
+//#import "CTMediator.h"
 
 #import "CTMediator+CTMediatorModuleAActions.h"
 #import "DemoModuleADetailViewController.h"
@@ -98,15 +98,14 @@
     return cell;
 }
 
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
- /*   [tableView deselectRowAtIndexPath:indexPath animated:YES];
-   for(int i = 0; i < indexPath.row; i++){
-        UIViewController * viewController = [[CTMediator sharedInstance] CTMediator_viewControllerForDetail];
-  //  DemoModuleADetailViewController * viewController = [[DemoModuleADetailViewController alloc]init];
-      [self.navigationController pushViewController:viewController animated:NO];
-}*/
-    
- //   UITableViewCell * cell =[[UITableViewCell alloc] init];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    //for(int i = 0; i < indexPath.row; i++){
+    DemoModuleADetailViewController *viewController = [[DemoModuleADetailViewController alloc]init];
+    [self presentViewController:viewController animated:YES completion:nil];
+
+    //}
     
 }
 

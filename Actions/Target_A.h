@@ -14,4 +14,9 @@
 
 - (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params;
 
+-(UICollectionViewCell*)Action_cell:(NSDictionary*)params;
+
+//-(void)Action_configCell:(NSDictionary*)params;
+
+
 @end

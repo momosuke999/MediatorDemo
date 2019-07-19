@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <SDWebImage/SDWebImage.h>
 #import "DetailsView.h"
-#import "DemoModuleADetailViewController.h"
+//#import "DemoModuleADetailViewController.h"
 #import <UIKit/UIKit.h>
 #import <Masonry.h>
 
@@ -18,23 +18,20 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if(self == [super initWithFrame:frame]){
-        [self initWithStyle];
+        _castsIcons = [[UIImageView alloc]init];
+   //     [self.contentView]
     }
     return self;
 }
 
--(void)initWithStyle{
-    UIImageView * castImage = [[UIImageView alloc]init];
-    [self.contentView addSubview:castImage ];
-    [castImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.left.right.equalTo(castImage.superview);
-        make.height.equalTo(castImage.mas_width);
-    }];
-    self.castsIcons = castImage;
+-(void)layoutSubviews{
+    [super layoutSubviews];
+      self.castsIcons.frame =CGRectMake(5, 60, 70, 100);
 }
 
 
-//-(void)setDirectList:(DemoModuleADetailViewController *)CV{
+
+//-(void)setCastList:(DemoModuleADetailViewController *)CV{
 //    NSString * directURL= CV.directImageURL;
 //    [_directorsIcons sd_setImageWithURL:[NSURL URLWithString:directURL]];
 //}

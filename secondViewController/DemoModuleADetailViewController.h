@@ -6,15 +6,17 @@
 //  Copyright © 2019年 CHUXIANWANG. All rights reserved.
 //
 #import "interfaceModel.h"
+#import "DetailsView.h"
 #import <UIKit/UIKit.h>
-@interface DemoModuleADetailViewController : UIViewController
-
-//@property(nonatomic,strong) UICollectionView * collectionView;
+@interface DemoModuleADetailViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property(nonatomic, strong) UIButton * returnBtn;
-//@property(nonatomic,strong, readonly) UILabel * valueLabel;
 
-@property(nonatomic,strong) NSArray* myDataArray;
-@property(nonatomic,strong)NSString * castImageURL;
-@property(nonatomic, strong)NSString * directImageURL;
+//@property(nonatomic,strong,readonly) UILabel * valueLabel;
+@property(nonatomic,strong) NSArray* myImageArray;
+
+//@property(nonatomic,strong)NSString * castImageURL;
+
+//@property(nonatomic, strong)NSString * directImageURL;
+
 @end
