@@ -11,11 +11,11 @@
 #import "ViewModel.h"
 #import <ReactiveCocoa.h>
 //#import "CTMediator.h"
-
+#import "ObjectToDict.h"
 #import "CTMediator+CTMediatorModuleAActions.h"
-#import "DemoModuleADetailViewController.h"
+#import "CollectionViewController.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 @property(nonatomic,strong) FilmViewModel * viewModel;
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic,strong) NSArray * myDataArray;
@@ -100,14 +100,41 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    //for(int i = 0; i < indexPath.row; i++){
-    DemoModuleADetailViewController *viewController = [[DemoModuleADetailViewController alloc]init];
-    [self presentViewController:viewController animated:YES completion:nil];
+    
 
-    //}
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    CollectionViewController *viewController = [[CollectionViewController alloc]init];
+
+    
+    interfaceModel * castModel = self.myDataArray[indexPath.row];
+    NSDictionary * castList = [ObjectToDict getObjectData: castModel];
+    // * casts = castList[@"casts"];
+    NSArray * casts =castList[@"casts"];
+    
+    NSMutableArray * iconList = [NSMutableArray array];
+    NSString * tempIcon = @"";
+
+    for(int i = 0; i<casts.count; i++){
+        NSDictionary * temp= casts[i];
+        NSArray * temp1 = temp[@"avatars"];
+        tempIcon = [temp1 valueForKey:@"small"];
+       [iconList addObject:tempIcon];
+         NSLog(@"%@",iconList);
+    }
+    
+ 
+    viewController.myImageArray = [iconList copy];
+   
+
+    [self presentViewController:viewController animated:YES completion:nil];
+ 
     
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

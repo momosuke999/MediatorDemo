@@ -8,17 +8,17 @@
 
 
 #import "CTMediator+CTMediatorModuleAActions.h"
-
+#import "DetailsView.h"
 
 NSString * const kCTMediatorTargetA = @"A";
 
-NSString * const kCTMediatorActionNativeFetchDetailViewController = @"nativeFetchDetailViewController";
+//NSString * const kCTMediatorActionNativeFetchDetailViewController = @"nativeFetchDetailViewController";
 
 NSString * const kCTMediatorActionCell = @"cell";
 NSString * const kCTMediatorActionConfigCell = @"configCell";
 
 @implementation CTMediator(CTMediatorModuleAActions)
-
+/*
 - (UIViewController *)CTMediator_viewControllerForDetail{
     UIViewController * viewController = [self performTarget:kCTMediatorTargetA action:kCTMediatorActionNativeFetchDetailViewController params:@{@"key":@"value"} shouldCacheTarget:NO];
     
@@ -28,20 +28,18 @@ NSString * const kCTMediatorActionConfigCell = @"configCell";
     else{
         return [[UIViewController alloc] init];
     }
-}
+}*/
 
 
 //generate collectionView
 
--(UICollectionViewCell*)CTMediator_collectionViewCellWithIdentifier:(NSString*)identifier  collectionView:(UICollectionView*)collectionView indexPath:(NSIndexPath*)indexPath{
-    return [self performTarget:kCTMediatorTargetA action:kCTMediatorActionCell params:@{                      @"identifier":identifier, @"collectionView":collectionView, @"indexPath": indexPath} shouldCacheTarget:YES];
+-(UICollectionViewCell*)CTMediator_collectionViewCellWithIdentifier:(NSString*)identifier collectionView:(UICollectionView*)collectionView withImageUrls:(NSArray*)ImageUrls indexPath:(NSIndexPath*)indexPath{
+    
+    return [self performTarget:kCTMediatorTargetA action:kCTMediatorActionCell params:@{                      @"identifier":identifier, @"collectionView":collectionView, @"ImageUrls": ImageUrls, @"indexPath": indexPath} shouldCacheTarget:YES];
 }
 
--(void)CTMediator_configCollectionViewCell:(UICollectionViewCell*)cell withImageUrls:(NSArray*)ImageUrls atIndexPath:(NSIndexPath*)indexPath{
-   
-    
-    [self performTarget:kCTMediatorTargetA action:kCTMediatorActionConfigCell params:@{@"cell":cell, @"ImageUrls":ImageUrls,@"indexPath":indexPath} shouldCacheTarget:YES];
-}
+
+
 
 -(void)CTMediator_cleanCollectionViewCellTarget{
     [self releaseCachedTargetWithTargetName:kCTMediatorTargetA];

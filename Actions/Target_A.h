@@ -12,11 +12,10 @@
 
 @interface Target_A: NSObject
 
-- (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params;
+//- (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params;
 
 -(UICollectionViewCell*)Action_cell:(NSDictionary*)params;
 
-//-(void)Action_configCell:(NSDictionary*)params;
 
 
 @end

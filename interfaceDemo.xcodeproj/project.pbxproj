@@ -11,7 +11,8 @@
 		610481C322D87CF7008BE770 /* CTMediator+CTMediatorModuleAActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 610481C222D87CF7008BE770 /* CTMediator+CTMediatorModuleAActions.m */; };
 		612F3D9E22E01B32000102F0 /* DetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 612F3D9D22E01B32000102F0 /* DetailsView.m */; };
 		6140EBBE22DDBEEC00EC03A5 /* Target_A.m in Sources */ = {isa = PBXBuildFile; fileRef = 6140EBBD22DDBEEC00EC03A5 /* Target_A.m */; };
-		6163145122DC25CC00CFA9C2 /* DemoModuleADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6163145022DC25CC00CFA9C2 /* DemoModuleADetailViewController.m */; };
+		6152490E22E54D7E004BB9E6 /* ObjectToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 6152490D22E54D7E004BB9E6 /* ObjectToDict.m */; };
+		6163145122DC25CC00CFA9C2 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6163145022DC25CC00CFA9C2 /* CollectionViewController.m */; };
 		61E139CF22D7343A0085241A /* ViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E139CE22D7343A0085241A /* ViewModel.m */; };
 		F36A1F3222AE32EA0047D3AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A1F3122AE32EA0047D3AD /* AppDelegate.m */; };
 		F36A1F3522AE32EA0047D3AD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F36A1F3422AE32EA0047D3AD /* ViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -62,8 +63,10 @@
 		612F3D9D22E01B32000102F0 /* DetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsView.m; sourceTree = "<group>"; };
 		6140EBBD22DDBEEC00EC03A5 /* Target_A.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Target_A.m; sourceTree = "<group>"; };
 		6140EBBF22DDBEF400EC03A5 /* Target_A.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Target_A.h; sourceTree = "<group>"; };
-		6163145022DC25CC00CFA9C2 /* DemoModuleADetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoModuleADetailViewController.m; sourceTree = "<group>"; };
-		6163145222DC25D700CFA9C2 /* DemoModuleADetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DemoModuleADetailViewController.h; sourceTree = "<group>"; };
+		6152490C22E54D72004BB9E6 /* ObjectToDict.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectToDict.h; sourceTree = "<group>"; };
+		6152490D22E54D7E004BB9E6 /* ObjectToDict.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectToDict.m; sourceTree = "<group>"; };
+		6163145022DC25CC00CFA9C2 /* CollectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewController.m; sourceTree = "<group>"; };
+		6163145222DC25D700CFA9C2 /* CollectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewController.h; sourceTree = "<group>"; };
 		61E139CE22D7343A0085241A /* ViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewModel.m; sourceTree = "<group>"; };
 		61E139D022D734450085241A /* ViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewModel.h; sourceTree = "<group>"; };
 		9508447B26C3DAAAF123C24E /* Pods-interfaceDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-interfaceDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-interfaceDemo/Pods-interfaceDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -117,8 +120,8 @@
 		6163144F22DC25B100CFA9C2 /* secondViewController */ = {
 			isa = PBXGroup;
 			children = (
-				6163145022DC25CC00CFA9C2 /* DemoModuleADetailViewController.m */,
-				6163145222DC25D700CFA9C2 /* DemoModuleADetailViewController.h */,
+				6163145022DC25CC00CFA9C2 /* CollectionViewController.m */,
+				6163145222DC25D700CFA9C2 /* CollectionViewController.h */,
 				612F3D9C22E01B32000102F0 /* DetailsView.h */,
 				612F3D9D22E01B32000102F0 /* DetailsView.m */,
 			);
@@ -199,7 +202,6 @@
 			children = (
 				F36A1F3022AE32EA0047D3AD /* AppDelegate.h */,
 				F36A1F3122AE32EA0047D3AD /* AppDelegate.m */,
-				F36A1F6B22AE349B0047D3AD /* dataSource */,
 				F36A1F6822AE33B50047D3AD /* viewController */,
 				F36A1F6922AE33CA0047D3AD /* interfaceView */,
 				F36A1F6A22AE33E40047D3AD /* interfaceModel */,
@@ -226,6 +228,8 @@
 			children = (
 				F36A1F3422AE32EA0047D3AD /* ViewController.m */,
 				F36A1F3322AE32EA0047D3AD /* ViewController.h */,
+				6152490C22E54D72004BB9E6 /* ObjectToDict.h */,
+				6152490D22E54D7E004BB9E6 /* ObjectToDict.m */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -246,13 +250,6 @@
 				F36A1F6622AE335E0047D3AD /* interfaceModel.m */,
 			);
 			path = interfaceModel;
-			sourceTree = "<group>";
-		};
-		F36A1F6B22AE349B0047D3AD /* dataSource */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = dataSource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,12 +405,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6163145122DC25CC00CFA9C2 /* DemoModuleADetailViewController.m in Sources */,
+				6163145122DC25CC00CFA9C2 /* CollectionViewController.m in Sources */,
 				F36A1F3522AE32EA0047D3AD /* ViewController.m in Sources */,
 				F36A1F6722AE335E0047D3AD /* interfaceModel.m in Sources */,
 				610481C322D87CF7008BE770 /* CTMediator+CTMediatorModuleAActions.m in Sources */,
 				F36A1F4022AE32EB0047D3AD /* main.m in Sources */,
 				612F3D9E22E01B32000102F0 /* DetailsView.m in Sources */,
+				6152490E22E54D7E004BB9E6 /* ObjectToDict.m in Sources */,
 				F36A1F6322AE33240047D3AD /* interfaceView.m in Sources */,
 				6140EBBE22DDBEEC00EC03A5 /* Target_A.m in Sources */,
 				F36A1F3222AE32EA0047D3AD /* AppDelegate.m in Sources */,

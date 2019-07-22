@@ -8,15 +8,11 @@
 #import "interfaceModel.h"
 #import "DetailsView.h"
 #import <UIKit/UIKit.h>
-@interface DemoModuleADetailViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface CollectionViewController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property(nonatomic, strong) UIButton * returnBtn;
 
-//@property(nonatomic,strong,readonly) UILabel * valueLabel;
 @property(nonatomic,strong) NSArray* myImageArray;
 
-//@property(nonatomic,strong)NSString * castImageURL;
-
-//@property(nonatomic, strong)NSString * directImageURL;
 
 @end

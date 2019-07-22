@@ -6,18 +6,16 @@
 //  Copyright © 2019年 CHUXIANWANG. All rights reserved.
 //
 #import <Foundation/Foundation.h>
-#import "DemoModuleADetailViewController.h"
 #import <UIKit/UIKit.h>
 #import "interfaceModel.h"
-#import "DetailsView.h"
-#import "ViewModel.h"
+#import "CollectionViewController.h"
 #import "CTMediator+CTMediatorModuleAActions.h"
 
 #pragma reuse identifier
 static NSString* const reuseIdentifier = @"colelctionViewId";
 
 
-@interface DemoModuleADetailViewController()
+@interface CollectionViewController()
 
 @property(nonatomic,strong) UICollectionView * collectionView;
 
@@ -26,30 +24,34 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
 
 #pragma viewController
 
-@implementation DemoModuleADetailViewController
+@implementation CollectionViewController
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.returnBtn];
     
     //temperary data source
-    _myImageArray= @[@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1530362237.95.jpg", @"https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1478066140.77.jpg",@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p805.jpg", @"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1466186775.21.jpg" ];
+  //  self.myImageArray= @[@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1530362237.95.jpg", @"https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1478066140.77.jpg",@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p805.jpg", @"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1466186775.21.jpg" ];
+    //NSLog(@"%@", self.myImageArray);
     
-    //init CollectionView
     UICollectionViewFlowLayout * flowLayout =[[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+   [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
+    flowLayout.estimatedItemSize = CGSizeMake(100, 200);
     
-    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, 300, 300) collectionViewLayout:flowLayout];
-    flowLayout.estimatedItemSize = CGSizeMake(80, 50);
-    _collectionView.backgroundColor = [UIColor whiteColor];
+    
+    
+    self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(30, 30, 300, 250) collectionViewLayout:flowLayout];
+    [self.collectionView registerClass:[DetailsView class] forCellWithReuseIdentifier:reuseIdentifier];
+    self.collectionView.backgroundColor = [UIColor whiteColor];
+    
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    
+    
     [self.view addSubview:self.collectionView];
-    
-    
+  //  [self.collectionView reloadData];
     
 }
 
@@ -88,6 +90,7 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
 }
 
 
+
 #pragma get the image list
 
 
@@ -98,34 +101,39 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
 #pragma generate CollectionView
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return 4;
+    return self.myImageArray.count;
 }
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1 ;
+}
+
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+
+//call the mediator
+-(void)dealloc{
+    [[CTMediator sharedInstance]CTMediator_cleanCollectionViewCellTarget];
+}
+
+
 
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    return [[CTMediator sharedInstance] CTMediator_collectionViewCellWithIdentifier:reuseIdentifier collectionView:collectionView indexPath:indexPath];
-}
-
-
--(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    return [[CTMediator sharedInstance] CTMediator_collectionViewCellWithIdentifier:reuseIdentifier collectionView:collectionView withImageUrls:self.myImageArray indexPath:indexPath];
+//    self.automaticallyAdjustsScrollViewInsets = NO;
 
     
-    [[CTMediator sharedInstance] CTMediator_configCollectionViewCell:cell withImageUrls:_myImageArray atIndexPath:indexPath];
-
 }
 
 
 
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return CGSizeZero;
-}
-
--(void)dealloc{
-    [[CTMediator sharedInstance]CTMediator_cleanCollectionViewCellTarget];
-}
 
 
 - (void)didReceiveMemoryWarning {

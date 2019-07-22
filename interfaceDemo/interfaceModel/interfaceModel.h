@@ -29,7 +29,7 @@
 
 @property(nonatomic, copy) NSString * mainland_pubdate;
 
-@property(nonatomic,assign) bool * has_video;
+@property(nonatomic,assign) NSString * has_video;
 
 @property(nonatomic, copy) NSString * original_title;
 

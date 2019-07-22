@@ -18,24 +18,32 @@
 
 -(instancetype)initWithFrame:(CGRect)frame{
     if(self == [super initWithFrame:frame]){
-        _castsIcons = [[UIImageView alloc]init];
+     //   _castsIcons = [[UIImageView alloc]init];
    //     [self.contentView]
+        [self setupUI];
     }
     return self;
 }
 
 -(void)layoutSubviews{
     [super layoutSubviews];
-      self.castsIcons.frame =CGRectMake(5, 60, 50, 70);
+      self.castsIcons.frame =CGRectMake(0, 0, 100, 130);
 }
 
 
+-(UIImageView *)castsIcons {
+    if(_castsIcons ==nil){
+        _castsIcons = [[UIImageView alloc]init];
+        
+    }
+    return _castsIcons;
+}
 
-//-(void)setCastList:(DemoModuleADetailViewController *)CV{
-//    NSString * directURL= CV.directImageURL;
-//    [_directorsIcons sd_setImageWithURL:[NSURL URLWithString:directURL]];
-//}
-    
+-(void)setupUI{
+    self.contentView.layer.cornerRadius = 4;
+    self.contentView.layer.masksToBounds = YES;
+    [self.contentView addSubview:self.castsIcons];
+}
     
 
 

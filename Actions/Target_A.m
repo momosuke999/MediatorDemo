@@ -8,19 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "Target_A.h"
-#import "DemoModuleADetailViewController.h"
+#import "CollectionViewController.h"
 #import <SDWebImage/SDWebImage.h>
 
 typedef  void(^CTUrlRouterCallbackBlock)(NSDictionary * info);
 
 @implementation Target_A
-
+/*
 - (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params{
     DemoModuleADetailViewController *viewController = [[DemoModuleADetailViewController alloc] init];
     //viewController.valueLabel.text = params[@"key"];
     return viewController;
     
-}
+}*/
 
 
 
@@ -28,21 +28,16 @@ typedef  void(^CTUrlRouterCallbackBlock)(NSDictionary * info);
     UICollectionView* collectionView = params[@"collectionView"];
     NSString * identifier = params[@"identifier"];
     NSIndexPath * indexPath =params[@"indexPath"];
+    NSArray * imageUrls = params[@"ImageUrls"];
+    
     DetailsView * cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    NSString * imageUrl =imageUrls[indexPath.item];
+    [cell.castsIcons sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
     return cell;
     
 }
 
--(id)Action_configCell:(NSDictionary*)params{
-    NSArray * ImageUrls = params[@"ImageUrls"];
-    NSIndexPath * indexPath =params[@"indexPath"];
-    DetailsView* cell = params[@"cell"];
-    NSString * imageUrl = ImageUrls[indexPath.row];
-    [cell.castsIcons sd_setImageWithURL:[NSURL URLWithString:imageUrl]];
-    
-    return nil;
-    
-}
+
 
 
 
