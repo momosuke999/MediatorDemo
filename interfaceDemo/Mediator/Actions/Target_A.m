@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Target_A.h"
-#import "CollectionViewController.h"
+#import "DetailsView.h"
 #import <SDWebImage/SDWebImage.h>
 
 typedef  void(^CTUrlRouterCallbackBlock)(NSDictionary * info);
