@@ -11,13 +11,8 @@
 
 @interface DetailsView: UICollectionViewCell
 
-
-
 @property(nonatomic, strong) UIImageView * directorsIcons;
 @property(nonatomic, strong) UIImageView * castsIcons;
 
-
-
-//@property(nonatomic, strong) interfaceModel * inModel;
 
 @end/* interfaceView_h */

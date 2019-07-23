@@ -14,5 +14,6 @@
 
 @property(nonatomic,strong) NSArray* myImageArray;
 
+@property(nonatomic, strong) UILabel * textLabel;
 
 @end

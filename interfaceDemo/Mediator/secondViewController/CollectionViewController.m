@@ -31,16 +31,14 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor grayColor];
     [self.view addSubview:self.returnBtn];
-    
-    //temperary data source
-  //  self.myImageArray= @[@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1530362237.95.jpg", @"https://img1.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1478066140.77.jpg",@"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p805.jpg", @"https://img3.doubanio.com/view/celebrity/s_ratio_celebrity/public/p1466186775.21.jpg" ];
-    //NSLog(@"%@", self.myImageArray);
-    
+    [self.view addSubview:self.textLabel];
+    if(self.myImageArray.count ==0){
+        self.textLabel.text = @"暂无";
+    }
+
     UICollectionViewFlowLayout * flowLayout =[[UICollectionViewFlowLayout alloc] init];
    [flowLayout setScrollDirection:UICollectionViewScrollDirectionHorizontal];
     flowLayout.estimatedItemSize = CGSizeMake(100, 200);
-    
-    
     
     self.collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake(30, 30, 300, 250) collectionViewLayout:flowLayout];
     [self.collectionView registerClass:[DetailsView class] forCellWithReuseIdentifier:reuseIdentifier];
@@ -49,18 +47,19 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
     
-    
     [self.view addSubview:self.collectionView];
-  //  [self.collectionView reloadData];
     
 }
 
 
-
 - (void)viewWillLayoutSubviews{
     [super viewWillLayoutSubviews];
-    self.returnBtn.frame = CGRectMake(100,400 , 40, 20);
-    
+    self.textLabel.frame = CGRectMake(100, 200, 50, 50);
+    self.textLabel.textColor = [UIColor blackColor];
+    self.textLabel.font = [UIFont systemFontOfSize:20];
+    self.returnBtn.frame = CGRectMake(150,350 , 50, 30);
+
+   
 }
 
 #pragma set button and lazy load
@@ -80,38 +79,26 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
     if (_returnBtn == nil) {
         _returnBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         [_returnBtn addTarget:self action:@selector(didTappedReturnBtn:) forControlEvents:UIControlEventTouchUpInside];
-        [_returnBtn setTitle:@"return" forState:UIControlStateNormal];
-        _returnBtn.titleLabel.font= [UIFont systemFontOfSize:14 ];
-        [_returnBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        _returnBtn.backgroundColor = [UIColor grayColor];
+        [_returnBtn setTitle:@"返回" forState:UIControlStateNormal];
+        _returnBtn.titleLabel.font= [UIFont systemFontOfSize:20 ];
+        [_returnBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        _returnBtn.backgroundColor = [UIColor whiteColor];
     }
     return _returnBtn;
     
 }
 
-
-
-#pragma get the image list
-
-
-
-
-//-----------------------------**
+-(UILabel*)textLabel{
+    if(_textLabel == nil){
+        _textLabel = [[UILabel alloc]init];
+    }
+    return _textLabel;
+}
 
 #pragma generate CollectionView
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.myImageArray.count;
-}
-
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1 ;
-}
-
-
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    
 }
 
 
@@ -121,19 +108,10 @@ static NSString* const reuseIdentifier = @"colelctionViewId";
 }
 
 
-
-
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     
     return [[CTMediator sharedInstance] CTMediator_collectionViewCellWithIdentifier:reuseIdentifier collectionView:collectionView withImageUrls:self.myImageArray indexPath:indexPath];
-//    self.automaticallyAdjustsScrollViewInsets = NO;
-
-    
 }
-
-
-
-
 
 
 - (void)didReceiveMemoryWarning {

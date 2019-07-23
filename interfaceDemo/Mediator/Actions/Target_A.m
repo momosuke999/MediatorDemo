@@ -14,15 +14,6 @@
 typedef  void(^CTUrlRouterCallbackBlock)(NSDictionary * info);
 
 @implementation Target_A
-/*
-- (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params{
-    DemoModuleADetailViewController *viewController = [[DemoModuleADetailViewController alloc] init];
-    //viewController.valueLabel.text = params[@"key"];
-    return viewController;
-    
-}*/
-
-
 
 -(UICollectionViewCell*)Action_cell:(NSDictionary*)params{
     UICollectionView* collectionView = params[@"collectionView"];
@@ -36,11 +27,6 @@ typedef  void(^CTUrlRouterCallbackBlock)(NSDictionary * info);
     return cell;
     
 }
-
-
-
-
-
 
 
 

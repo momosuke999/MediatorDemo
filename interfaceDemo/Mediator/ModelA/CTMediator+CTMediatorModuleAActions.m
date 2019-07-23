@@ -12,24 +12,10 @@
 
 NSString * const kCTMediatorTargetA = @"A";
 
-//NSString * const kCTMediatorActionNativeFetchDetailViewController = @"nativeFetchDetailViewController";
-
 NSString * const kCTMediatorActionCell = @"cell";
 NSString * const kCTMediatorActionConfigCell = @"configCell";
 
 @implementation CTMediator(CTMediatorModuleAActions)
-/*
-- (UIViewController *)CTMediator_viewControllerForDetail{
-    UIViewController * viewController = [self performTarget:kCTMediatorTargetA action:kCTMediatorActionNativeFetchDetailViewController params:@{@"key":@"value"} shouldCacheTarget:NO];
-    
-    if([viewController isKindOfClass:[UIViewController class]]){
-        return viewController;
-    }
-    else{
-        return [[UIViewController alloc] init];
-    }
-}*/
-
 
 //generate collectionView
 

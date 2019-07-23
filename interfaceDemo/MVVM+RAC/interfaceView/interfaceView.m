@@ -13,8 +13,6 @@
 #import <SDWebImage/SDWebImage.h>
 
 
-
-
 @implementation interfaceView
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
@@ -25,9 +23,7 @@
     return self;
 } //调用create controll
 
-
 -(void)setInterfaceM:(interfaceModel *)InterfaceM{
-    
     
     //--------------------set model for non array lebels-------------
     
@@ -35,15 +31,9 @@
     
    NSDictionary * imageURLs =InterfaceM.images;
   NSString * imageURL =[imageURLs objectForKey:@"small"];
-   
-   // NSURL *photourl = [NSURL URLWithString:imageURL];
-    //UIImage *images = [UIImage imageWithData:[NSData dataWithContentsOfURL:photourl]];
-   //_filmIcon.image = images;
 
    [_filmIcon sd_setImageWithURL:[NSURL URLWithString:imageURL]];
    
-
-    
     bool kanji = NO;
     for (int i=0; i<InterfaceM.original_title.length; i++) {
         NSRange range =NSMakeRange(i, 1);
@@ -81,18 +71,11 @@
     if([dstr isEqualToString: @"0.00"]){
         _rateAverageLabel.text = @"暂无评分";
     }
-    //NSDecimalNumber *dn = [NSDecimalNumber decimalNumberWithString:dstr];    //NSString *string7 = [dn stringValue];
+
     else{
     _rateAverageLabel.text = [NSString stringWithFormat:@"%@: %@", string6,dstr];
     }
   
-    
-    
-    //stars
-  // NSDictionary * Stars = [rates dictionaryWithObjectsAndKeys:@"details", nil];
-   // _starsLabel.text =[NSString stringWithFormat:@"%ld", (long)InterfaceM.rating.stars];
-    
-    
     
     //******************set update for array labels without image**********************//
     
@@ -129,8 +112,6 @@
      NSString * string2 = @"影片类型";
     _genreLabel.text =[NSString stringWithFormat:@"%@: %@", string2, genreR];
     
-
-    
   
     //3.castname
     NSArray * castnameArray = InterfaceM.casts;
@@ -148,18 +129,12 @@
     
     }
     
- 
     NSString * string3 = @"主演";
     _castnameLabel.text= [NSString stringWithFormat: @"%@: %@", string3,castR];
     _castnameLabel.lineBreakMode = NSLineBreakByWordWrapping;
     _castnameLabel.numberOfLines = 0;
     _castnameLabel.preferredMaxLayoutWidth = 300;
-   // NSLog(@"----%@",_castnameLabel.text);
-    
-    
-    
-    
-    
+
     //5.directorname
     NSArray * directnameArray = InterfaceM.directors;
     NSString* directnameR = @"";
@@ -183,8 +158,6 @@
  
 }
 
-
-
 //******************-creat top, center, footer view-**********************//
 
 -(void) createControl{
@@ -194,8 +167,6 @@
     
  [self creatGrayView];
 }
-
-
 
 //top view with film name and mainland pubdate
 -(void)createTopView{
@@ -228,9 +199,6 @@
     titleLabel.font = [UIFont systemFontOfSize:14];
     titleLabel.textColor = [UIColor whiteColor];
     _filmNameLabel = titleLabel;
-    
-
-    
     
 
     UILabel * mainlandLabel = [[UILabel alloc] init];
@@ -313,19 +281,6 @@
     directLable.font = [UIFont systemFontOfSize:14];
     directLable.textColor = [UIColor blackColor];
     _directorsNameLabel = directLable;
-     
-     
-    
- /*   //director icon
-    UIImageView * directIcon = [[UIImageView alloc] init];
-    [centerView addSubview:directIcon];
-    [directIcon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.mas_equalTo(directIcon.mas_right).mas_equalTo(2);
-        make.top.mas_equalTo(directIcon);
-    }];
-   // _DirectorsIcon = directIcon; */
- 
-    
     
     UILabel * rateLabel = [[UILabel alloc] init];
     [centerView addSubview:rateLabel];
@@ -352,19 +307,6 @@
     castLabel.textColor = [UIColor blackColor];
     _castnameLabel = castLabel;
     
-    
-
-   /* UIButton * details = [[UIButton alloc] init];
-    [centerView addSubview:details];
-    details.frame = CGRectMake(160, 170, 90, 20);
-    
-   // details = [[UIButton alloc] init];
-    [details setTitle:@"查看详情" forState:UIControlStateNormal];
-    details.titleLabel.font= [UIFont systemFontOfSize:18 ];
-    [details addTarget:self action:@selector(didTappedDetails: ) forControlEvents:UIControlEventTouchUpInside];
-    details.backgroundColor = [UIColor grayColor];
-    _DetailsBtn = details;*/
-
 }
 
 

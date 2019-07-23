@@ -12,8 +12,6 @@
 
 @interface Target_A: NSObject
 
-//- (UIViewController *)Action_nativeFetchDetailViewController:(NSDictionary *)params;
-
 -(UICollectionViewCell*)Action_cell:(NSDictionary*)params;
 
 

@@ -10,6 +10,7 @@
 		07C47BD026E38FA009227825 /* libPods-interfaceDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4797E131C96DB9F9A29D1E7 /* libPods-interfaceDemo.a */; };
 		610481C322D87CF7008BE770 /* CTMediator+CTMediatorModuleAActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 610481C222D87CF7008BE770 /* CTMediator+CTMediatorModuleAActions.m */; };
 		612F3D9E22E01B32000102F0 /* DetailsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 612F3D9D22E01B32000102F0 /* DetailsView.m */; };
+		6136697622E6E85F005D2490 /* getImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 6136697522E6E85F005D2490 /* getImages.m */; };
 		6140EBBE22DDBEEC00EC03A5 /* Target_A.m in Sources */ = {isa = PBXBuildFile; fileRef = 6140EBBD22DDBEEC00EC03A5 /* Target_A.m */; };
 		6152490E22E54D7E004BB9E6 /* ObjectToDict.m in Sources */ = {isa = PBXBuildFile; fileRef = 6152490D22E54D7E004BB9E6 /* ObjectToDict.m */; };
 		6163145122DC25CC00CFA9C2 /* CollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6163145022DC25CC00CFA9C2 /* CollectionViewController.m */; };
@@ -61,6 +62,8 @@
 		610481C222D87CF7008BE770 /* CTMediator+CTMediatorModuleAActions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CTMediator+CTMediatorModuleAActions.m"; sourceTree = "<group>"; };
 		612F3D9C22E01B32000102F0 /* DetailsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsView.h; sourceTree = "<group>"; };
 		612F3D9D22E01B32000102F0 /* DetailsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsView.m; sourceTree = "<group>"; };
+		6136697522E6E85F005D2490 /* getImages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = getImages.m; sourceTree = "<group>"; };
+		6136697722E6E86B005D2490 /* getImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = getImages.h; sourceTree = "<group>"; };
 		6140EBBD22DDBEEC00EC03A5 /* Target_A.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Target_A.m; sourceTree = "<group>"; };
 		6140EBBF22DDBEF400EC03A5 /* Target_A.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Target_A.h; sourceTree = "<group>"; };
 		6152490C22E54D72004BB9E6 /* ObjectToDict.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectToDict.h; sourceTree = "<group>"; };
@@ -117,6 +120,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6136697822E6F4F0005D2490 /* MVVM+RAC */ = {
+			isa = PBXGroup;
+			children = (
+				61E139CA22D733FF0085241A /* ViewModel */,
+				F36A1F6822AE33B50047D3AD /* viewController */,
+				F36A1F6922AE33CA0047D3AD /* interfaceView */,
+				F36A1F6A22AE33E40047D3AD /* interfaceModel */,
+			);
+			path = "MVVM+RAC";
+			sourceTree = "<group>";
+		};
+		6136697922E6F535005D2490 /* Mediator */ = {
+			isa = PBXGroup;
+			children = (
+				6163144F22DC25B100CFA9C2 /* secondViewController */,
+				61FA91DE22DF015200CF4DF7 /* Actions */,
+				61FA91DD22DF011900CF4DF7 /* ModelA */,
+			);
+			path = Mediator;
+			sourceTree = "<group>";
+		};
 		6163144F22DC25B100CFA9C2 /* secondViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,10 +199,6 @@
 		F36A1F2422AE32EA0047D3AD = {
 			isa = PBXGroup;
 			children = (
-				6163144F22DC25B100CFA9C2 /* secondViewController */,
-				61FA91DE22DF015200CF4DF7 /* Actions */,
-				61FA91DD22DF011900CF4DF7 /* ModelA */,
-				61E139CA22D733FF0085241A /* ViewModel */,
 				F36A1F2F22AE32EA0047D3AD /* interfaceDemo */,
 				F36A1F5322AE32EB0047D3AD /* interfaceDemoUITests */,
 				F36A1F2E22AE32EA0047D3AD /* Products */,
@@ -200,11 +220,10 @@
 		F36A1F2F22AE32EA0047D3AD /* interfaceDemo */ = {
 			isa = PBXGroup;
 			children = (
+				6136697922E6F535005D2490 /* Mediator */,
+				6136697822E6F4F0005D2490 /* MVVM+RAC */,
 				F36A1F3022AE32EA0047D3AD /* AppDelegate.h */,
 				F36A1F3122AE32EA0047D3AD /* AppDelegate.m */,
-				F36A1F6822AE33B50047D3AD /* viewController */,
-				F36A1F6922AE33CA0047D3AD /* interfaceView */,
-				F36A1F6A22AE33E40047D3AD /* interfaceModel */,
 				F36A1F3622AE32EA0047D3AD /* Main.storyboard */,
 				F36A1F3922AE32EB0047D3AD /* Assets.xcassets */,
 				F36A1F3B22AE32EB0047D3AD /* LaunchScreen.storyboard */,
@@ -230,6 +249,8 @@
 				F36A1F3322AE32EA0047D3AD /* ViewController.h */,
 				6152490C22E54D72004BB9E6 /* ObjectToDict.h */,
 				6152490D22E54D7E004BB9E6 /* ObjectToDict.m */,
+				6136697722E6E86B005D2490 /* getImages.h */,
+				6136697522E6E85F005D2490 /* getImages.m */,
 			);
 			path = viewController;
 			sourceTree = "<group>";
@@ -409,6 +430,7 @@
 				F36A1F3522AE32EA0047D3AD /* ViewController.m in Sources */,
 				F36A1F6722AE335E0047D3AD /* interfaceModel.m in Sources */,
 				610481C322D87CF7008BE770 /* CTMediator+CTMediatorModuleAActions.m in Sources */,
+				6136697622E6E85F005D2490 /* getImages.m in Sources */,
 				F36A1F4022AE32EB0047D3AD /* main.m in Sources */,
 				612F3D9E22E01B32000102F0 /* DetailsView.m in Sources */,
 				6152490E22E54D7E004BB9E6 /* ObjectToDict.m in Sources */,

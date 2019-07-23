@@ -10,7 +10,7 @@
 #import "interfaceView.h"
 #import "ViewModel.h"
 #import <ReactiveCocoa.h>
-//#import "CTMediator.h"
+#import "getImages.h"
 #import "ObjectToDict.h"
 #import "CTMediator+CTMediatorModuleAActions.h"
 #import "CollectionViewController.h"
@@ -23,13 +23,11 @@
 
 
 @implementation ViewController
-//   NSMutableArray * dataArray;
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-   // self.view.backgroundColor = [UIColor greenColor];
-    //initialize the tableview
+    // Do any additional setup after loading the view, typically from a nib
        self.tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 20, self.view.bounds.size.width, self.view.bounds.size.height - 20)];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -37,15 +35,11 @@
     
     [self bindWithViewModel];
  
-    
-
 }
 
 
+#pragma bind with viewmodel to execute the internet request
 
-
-
-//bind with viewmodel to execute the internet request
 -(void)bindWithViewModel{
     @weakify(self);
     [self.viewModel.command.executionSignals.switchToLatest subscribeNext:^(NSArray<interfaceModel *> * array){
@@ -64,31 +58,21 @@
     return _viewModel;
 }
 
-
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     return 250.f;
 }
 
-
-
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    //return dataArray.count;
     return [self.myDataArray count];
 }
 
 
-
-
 #pragma for dowanload images
-
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *cellidentifier = @"cellidentifier";
     interfaceView * cell = [tableView dequeueReusableCellWithIdentifier:cellidentifier];
-//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
    if(cell == nil){
         cell =[[interfaceView alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellidentifier];
@@ -101,45 +85,25 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     
-
-    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     CollectionViewController *viewController = [[CollectionViewController alloc]init];
 
+    interfaceModel * filmModel = self.myDataArray[indexPath.row];
+    NSDictionary * filmList = [ObjectToDict getObjectData: filmModel];
     
-    interfaceModel * castModel = self.myDataArray[indexPath.row];
-    NSDictionary * castList = [ObjectToDict getObjectData: castModel];
-    // * casts = castList[@"casts"];
-    NSArray * casts =castList[@"casts"];
+    NSArray * casts =filmList[@"casts"];
+    NSArray * directs = filmList[@"directors"];
     
-    NSMutableArray * iconList = [NSMutableArray array];
-    NSString * tempIcon = @"";
-
-    for(int i = 0; i<casts.count; i++){
-        NSDictionary * temp= casts[i];
-        NSArray * temp1 = temp[@"avatars"];
-        tempIcon = [temp1 valueForKey:@"small"];
-       [iconList addObject:tempIcon];
-         NSLog(@"%@",iconList);
-    }
-    
- 
-    viewController.myImageArray = [iconList copy];
-   
+    viewController.myImageArray = [getImages getImagesList:casts andDirectors:directs];
 
     [self presentViewController:viewController animated:YES completion:nil];
  
-    
 }
-
-
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

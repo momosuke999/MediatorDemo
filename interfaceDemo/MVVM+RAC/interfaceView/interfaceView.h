@@ -24,10 +24,6 @@
 @property (nonatomic, weak) IBOutlet UILabel * genreLabel;
 @property (nonatomic, weak) IBOutlet UILabel *mainland_pubdateLabel;
 
-//@property(nonatomic, weak) IBOutlet UIButton * DetailsBtn;
-//@property (nonatomic,strong) EGOImageView * filmIcon;
-
 @property (nonatomic, strong) interfaceModel * InterfaceM;
-//@property(nonatomic, strong) UILabel * _filmNameLabel;
 
 @end/* interfaceView_h */
