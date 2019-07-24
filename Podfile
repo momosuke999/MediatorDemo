@@ -9,5 +9,5 @@ target 'interfaceDemo' do
 	pod 'AFNetworking'
 	pod 'Masonry'
 	pod 'SDWebImage' 
-	pod "CTMediator"
+	pod 'CTMediator'
 end

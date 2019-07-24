@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "interfaceModel.h"
 
 @interface DetailsView: UICollectionViewCell
 

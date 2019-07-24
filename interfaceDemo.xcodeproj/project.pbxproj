@@ -131,14 +131,25 @@
 			path = "MVVM+RAC";
 			sourceTree = "<group>";
 		};
-		6136697922E6F535005D2490 /* Mediator */ = {
+		6136697922E6F535005D2490 /* Mediator+Module */ = {
 			isa = PBXGroup;
 			children = (
 				6163144F22DC25B100CFA9C2 /* secondViewController */,
 				61FA91DE22DF015200CF4DF7 /* Actions */,
 				61FA91DD22DF011900CF4DF7 /* ModelA */,
 			);
-			path = Mediator;
+			path = "Mediator+Module";
+			sourceTree = "<group>";
+		};
+		6153E9E322E7F2230063E832 /* Obj+Array */ = {
+			isa = PBXGroup;
+			children = (
+				6152490C22E54D72004BB9E6 /* ObjectToDict.h */,
+				6152490D22E54D7E004BB9E6 /* ObjectToDict.m */,
+				6136697722E6E86B005D2490 /* getImages.h */,
+				6136697522E6E85F005D2490 /* getImages.m */,
+			);
+			path = "Obj+Array";
 			sourceTree = "<group>";
 		};
 		6163144F22DC25B100CFA9C2 /* secondViewController */ = {
@@ -220,7 +231,7 @@
 		F36A1F2F22AE32EA0047D3AD /* interfaceDemo */ = {
 			isa = PBXGroup;
 			children = (
-				6136697922E6F535005D2490 /* Mediator */,
+				6136697922E6F535005D2490 /* Mediator+Module */,
 				6136697822E6F4F0005D2490 /* MVVM+RAC */,
 				F36A1F3022AE32EA0047D3AD /* AppDelegate.h */,
 				F36A1F3122AE32EA0047D3AD /* AppDelegate.m */,
@@ -245,12 +256,9 @@
 		F36A1F6822AE33B50047D3AD /* viewController */ = {
 			isa = PBXGroup;
 			children = (
+				6153E9E322E7F2230063E832 /* Obj+Array */,
 				F36A1F3422AE32EA0047D3AD /* ViewController.m */,
 				F36A1F3322AE32EA0047D3AD /* ViewController.h */,
-				6152490C22E54D72004BB9E6 /* ObjectToDict.h */,
-				6152490D22E54D7E004BB9E6 /* ObjectToDict.m */,
-				6136697722E6E86B005D2490 /* getImages.h */,
-				6136697522E6E85F005D2490 /* getImages.m */,
 			);
 			path = viewController;
 			sourceTree = "<group>";

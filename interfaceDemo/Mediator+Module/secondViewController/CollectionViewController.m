@@ -7,7 +7,6 @@
 //
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "interfaceModel.h"
 #import "CollectionViewController.h"
 #import "CTMediator+CTMediatorModuleAActions.h"
 
